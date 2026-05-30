@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THELBA Enterprise | The Luxury Collection</title>
+    <!-- Google Fonts: Playfair Display (Elegant Luxury) & Poppins (Clean & Readable) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Pack for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="show-landing">
+
+    <!-- Soft Rose Gold Dreamy Mouse Spotlight -->
+    <div class="glimmer-spotlight" id="spotlight"></div>
+
+    <!-- Dreamy Animated Backdrop Orbs -->
+    <div class="boutique-ambient-bg">
+        <div class="luxe-orb orb-1"></div>
+        <div class="luxe-orb orb-2"></div>
+        <div class="luxe-orb orb-3"></div>
+    </div>
+
+    <!-- Floating Sparkling Micro-Glimmer Canvas -->
+    <div class="sparkle-canvas" id="sparkle-container"></div>
+
+    <!-- ─── 1. ELEGANT GLAM LANDING PAGE ─── -->
+    <section class="landing-screen" id="landing-screen">
+        <div class="landing-content">
+            <div class="logo-animation-wrapper">
+                <img src="Thelba Enterprisee.png" alt="THELBA Enterprise" class="boutique-logo">
+            </div>
+            <h1 class="landing-title">Thelba <span>Enterprise</span></h1>
+            <p class="landing-subtitle">Curated Essentials // <span>Designed For You</span></p>
+            <button class="launch-btn" onclick="enterStore()">
+                EXPLORE BOUTIQUE <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- ─── 2. SOFT GLASSMORPHISM NAVIGATION BAR ─── -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <img src="Thelba Enterprisee.png" alt="THELBA" class="nav-logo">
+            <div class="cart-trigger" onclick="toggleCart()">
+                <i class="fa-solid fa-heart"></i>
+                <span>MY BAG</span>
+                <span class="cart-badge" id="cart-badge">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ─── 3. INTERACTIVE PRODUCT SHOWCASE ─── -->
+    <main class="container">
+        <div class="catalog-header">
+            <h2 class="section-title">Curated Collection!!!</h2>
+            <div class="live-status"><span class="pulse-dot"></span> Open Today</div>
+        </div>
+        
+        <!-- Populated dynamically via JS array -->
+        <div class="products-grid" id="products-grid"></div>
+    </main>
+
+    <!-- ─── 4. COQUETTE SLIDE-OUT CART ─── -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Shopping Bag</h3>
+            <i class="fa-solid fa-xmark close-cart" onclick="toggleCart()"></i>
+        </div>
+        <div class="cart-body" id="cart-items-container"></div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Total Amount:</span>
+                <span id="cart-total-price">GHS 0.00</span>
+            </div>
+            <button class="checkout-btn" onclick="checkoutToWhatsApp()">
+                SEND ORDER TO WHATSAPP <i class="fa-brands fa-whatsapp"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

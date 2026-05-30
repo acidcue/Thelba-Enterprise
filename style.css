@@ -1,0 +1,314 @@
+/* ─── DESIGN TOKENS (SOFT LUXURY GLAM & COQUETTE) ─── */
+:root {
+    --bg-base: #fffbfb; 
+    --bg-surface: rgba(255, 255, 255, 0.75); 
+    --primary-blush: #91111d; /* THELBA Deep Rich Maroon-Red */
+    --accent-rose: #fcdad7; 
+    --accent-gold: #e2b4bd; 
+    --text-main: #3a2e2b; 
+    --text-muted: #8e7e7a;
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --soft-shadow: 0 10px 30px rgba(226, 180, 189, 0.15);
+    --whatsapp-green: #25D366;
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+    --transition-glam: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: var(--font-body);
+}
+
+body {
+    background-color: var(--bg-base);
+    color: var(--text-main);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* ─── LUXURY GRADIENT & ORB BACKGROUND EFFECTS ─── */
+.boutique-ambient-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    background: linear-gradient(135deg, #fffbfb 0%, #fff0f1 40%, #fdf5f6 70%, #fffbfb 100%);
+}
+
+.luxe-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.45;
+    mix-blend-mode: multiply;
+    transition: var(--transition-glam);
+}
+
+.orb-1 {
+    top: -10%; left: -10%;
+    width: 50vw; height: 50vw;
+    background: radial-gradient(circle, var(--accent-rose) 0%, rgba(253, 218, 213, 0) 70%);
+    animation: driftOrbOne 22s infinite ease-in-out alternate;
+}
+
+.orb-2 {
+    bottom: -15%; right: -5%;
+    width: 55vw; height: 55vw;
+    background: radial-gradient(circle, #fbc4cb 0%, rgba(251, 196, 203, 0) 70%);
+    animation: driftOrbTwo 26s infinite ease-in-out alternate;
+}
+
+.orb-3 {
+    top: 25%; right: 15%;
+    width: 35vw; height: 35vw;
+    background: radial-gradient(circle, #fae3e6 0%, rgba(250, 227, 230, 0) 70%);
+    animation: driftOrbOne 18s infinite ease-in-out alternate-reverse;
+}
+
+/* ─── ANIMATION LIFECYCLES ─── */
+@keyframes glamFadeUp {
+    from { opacity: 0; transform: translateY(30px); filter: blur(3px); }
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+@keyframes auraPulse {
+    0% { transform: scale(0.95); opacity: 0.4; }
+    100% { transform: scale(1.05); opacity: 0.7; }
+}
+@keyframes sparkleFloat {
+    0% { transform: translateY(105vh) translateX(0) rotate(0deg); opacity: 0; }
+    50% { opacity: 0.6; }
+    100% { transform: translateY(-5vh) translateX(30px) rotate(180deg); opacity: 0; }
+}
+@keyframes driftOrbOne {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    50% { transform: translate(4vw, 5vh) scale(1.1) rotate(120deg); }
+    100% { transform: translate(-2vw, -3vh) scale(0.95) rotate(240deg); }
+}
+@keyframes driftOrbTwo {
+    0% { transform: translate(0, 0) scale(1.05) rotate(360deg); }
+    50% { transform: translate(-5vw, -4vh) scale(0.9) rotate(180deg); }
+    100% { transform: translate(3vw, 2vh) scale(1.1) rotate(0deg); }
+}
+
+/* ─── BACKDROP SPARKLE LAYER ─── */
+.glimmer-spotlight {
+    position: fixed;
+    top: -1000px; left: -1000px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(252, 218, 215, 0.4) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.sparkle-canvas {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 2;
+}
+.glimmer-dot {
+    position: absolute;
+    width: 4px; height: 4px;
+    background-color: var(--accent-gold);
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 8px #fff;
+    animation: sparkleFloat 10s linear infinite;
+}
+
+/* ─── CHIC LANDING LAYER ─── */
+.landing-screen {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    background: transparent;
+    z-index: 1000;
+    display: flex; justify-content: center; align-items: center;
+    transition: var(--transition-glam);
+}
+
+.landing-content {
+    max-width: 600px; padding: 40px; text-align: center; z-index: 10;
+}
+
+.logo-animation-wrapper {
+    position: relative; display: inline-block; margin-bottom: 30px;
+}
+.logo-animation-wrapper::after {
+    content: ''; position: absolute; top: -15px; left: -15px; right: -15px; bottom: -15px;
+    border: 1px solid rgba(226, 180, 189, 0.4); border-radius: 50%;
+    animation: auraPulse 2.5s ease-in-out infinite alternate;
+}
+
+.boutique-logo {
+    width: 200px; height: auto; object-fit: contain; filter: drop-shadow(0 5px 15px rgba(226, 180, 189, 0.2));
+}
+
+.landing-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 12px;
+    color: var(--text-main);
+    animation: glamFadeUp 1.2s var(--transition-glam) 0.2s both;
+}
+.landing-title span { font-weight: 400; font-style: italic; color: var(--primary-blush); margin-left: 8px; }
+
+.landing-subtitle {
+    font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 50px;
+    animation: glamFadeUp 1.2s var(--transition-glam) 0.4s both;
+}
+.landing-subtitle span { color: var(--text-main); font-weight: 500; }
+
+.launch-btn {
+    padding: 16px 45px; background: var(--text-main); border: none;
+    color: white; font-weight: 600; font-size: 0.95rem; letter-spacing: 2px;
+    border-radius: 50px; cursor: pointer; transition: var(--transition-glam);
+    box-shadow: 0 10px 25px rgba(58, 46, 43, 0.15);
+    animation: glamFadeUp 1.2s var(--transition-glam) 0.6s both;
+}
+.launch-btn:hover {
+    background-color: var(--primary-blush);
+    box-shadow: 0 15px 30px rgba(145, 17, 29, 0.25);
+    transform: translateY(-3px);
+}
+
+/* Page Swipe Engine Out States */
+body:not(.show-landing) .landing-screen {
+    opacity: 0; pointer-events: none; transform: scale(1.03) translateY(-100vh);
+}
+body.show-landing .container, body.show-landing .navbar {
+    opacity: 0 !important; pointer-events: none !important; visibility: hidden;
+}
+
+/* ─── GLASS NAV BAR SYSTEM ─── */
+.navbar {
+    position: fixed; top: 0; left: 0; width: 100%; height: 80px;
+    background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border); z-index: 500;
+    transform: translateY(-100%); transition: var(--transition-glam);
+}
+body:not(.show-landing) .navbar { transform: translateY(0); }
+
+.nav-container {
+    max-width: 1200px; height: 100%; margin: 0 auto; padding: 0 30px;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.nav-logo { height: 42px; object-fit: contain; }
+
+.cart-trigger {
+    display: flex; align-items: center; gap: 10px; cursor: pointer;
+    padding: 10px 20px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.5);
+    border-radius: 50px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.5px;
+    transition: var(--transition-glam); box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+.cart-trigger:hover { border-color: var(--primary-blush); color: var(--primary-blush); transform: translateY(-1px); }
+.cart-trigger i { color: var(--primary-blush); }
+
+.cart-badge {
+    background-color: var(--primary-blush); color: white; padding: 2px 8px; border-radius: 50%; font-size: 0.7rem; font-weight: 700;
+}
+
+/* ─── THE BOUTIQUE SHOWCASE CATALOG ─── */
+.container {
+    max-width: 1200px; margin: 140px auto 60px auto; padding: 0 30px;
+    opacity: 0; transform: translateY(25px); transition: var(--transition-glam); z-index: 10; position: relative;
+}
+body:not(.show-landing) .container { opacity: 1; transform: translateY(0); }
+
+.catalog-header {
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid rgba(226, 180, 189, 0.3); padding-bottom: 20px; margin-bottom: 40px;
+}
+.section-title { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 600; color: var(--text-main); }
+.live-status { font-size: 0.8rem; font-weight: 500; color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
+.pulse-dot { width: 7px; height: 7px; background-color: var(--primary-blush); border-radius: 50%; box-shadow: 0 0 8px var(--primary-blush); }
+
+/* Grid System */
+.products-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 35px;
+}
+@media (max-width: 768px) {
+    .products-grid { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 20px; }
+    .landing-title { font-size: 2.5rem; }
+    .boutique-logo { width: 150px; }
+}
+
+/* Elegant Soft-Glass Product Cards */
+.product-card {
+    background: var(--bg-surface); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 20px; overflow: hidden;
+    box-shadow: var(--soft-shadow); opacity: 0; transform: translateY(30px);
+    animation: glamFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    transition: var(--transition-glam);
+}
+.product-card:hover {
+    border-color: #f7cbd2;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(226, 180, 189, 0.25);
+}
+
+.product-image-wrapper {
+    width: 100%; aspect-ratio: 1 / 1; overflow: hidden; background-color: #fcf8f8;
+    border-bottom: 1px solid rgba(0,0,0,0.02); display: flex; align-items: center; justify-content: center;
+}
+.product-image { width: 100%; height: 100%; object-fit: cover; transition: var(--transition-glam); }
+.product-card:hover .product-image { transform: scale(1.06); }
+
+.product-info { padding: 24px; text-align: center; }
+.product-title { font-size: 1rem; font-weight: 500; margin-bottom: 8px; color: var(--text-main); }
+.product-price { font-size: 1.15rem; font-weight: 700; color: var(--primary-blush); margin-bottom: 20px; }
+
+.add-to-cart-btn {
+    width: 100%; padding: 13px; background: rgba(58, 46, 43, 0.04); border: none;
+    color: var(--text-main); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.5px;
+    border-radius: 14px; cursor: pointer; transition: var(--transition-glam);
+}
+.product-card:hover .add-to-cart-btn {
+    background: var(--primary-blush); color: white;
+    box-shadow: 0 5px 15px rgba(145, 17, 29, 0.2);
+}
+
+/* ─── LUXE BAG SIDEBAR PANEL ─── */
+.cart-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(58, 46, 43, 0.2); backdrop-filter: blur(6px); opacity: 0; pointer-events: none; z-index: 1200; transition: opacity 0.4s ease; }
+.cart-overlay.active { opacity: 1; pointer-events: auto; }
+
+.cart-sidebar {
+    position: fixed; top: 0; right: 0; width: 100%; max-width: 440px; height: 100%;
+    background: #ffffff; border-left: 1px solid rgba(226, 180, 189, 0.2); z-index: 1300;
+    transform: translateX(100%); transition: var(--transition-glam); display: flex; flex-direction: column;
+}
+.cart-sidebar.active { transform: translateX(0); }
+
+.cart-header { padding: 30px; border-bottom: 1px solid #fcf0f1; display: flex; justify-content: space-between; align-items: center; }
+.cart-header h3 { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 600; }
+.close-cart { font-size: 1.2rem; cursor: pointer; color: var(--text-muted); transition: var(--transition-glam); }
+.close-cart:hover { color: var(--primary-blush); transform: rotate(90deg); }
+
+.cart-body { flex: 1; overflow-y: auto; padding: 30px; }
+.empty-cart-message { text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 50px; }
+
+.cart-footer { padding: 30px; border-top: 1px solid #fcf0f1; background: #fffdfd; }
+.cart-total-row { display: flex; justify-content: space-between; font-weight: 700; font-size: 1.2rem; margin-bottom: 24px; }
+.cart-total-row span:nth-child(2) { color: var(--primary-blush); }
+
+/* 🛠️ FIXED: Solid high-contrast WhatsApp button look by default */
+.checkout-btn {
+    width: 100%; padding: 18px; 
+    background-color: var(--whatsapp-green); 
+    color: #ffffff !important; /* Forces bold white text visibility */
+    border: none; border-radius: 14px; 
+    font-size: 0.95rem; font-weight: 700; letter-spacing: 0.5px;
+    cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.2); 
+    transition: var(--transition-glam);
+}
+
+/* Smooth elegant grow on hover */
+.checkout-btn:hover { 
+    background-color: #1ebe5d; 
+    color: #ffffff !important;
+    transform: translateY(-3px); 
+    box-shadow: 0 12px 26px rgba(37, 211, 102, 0.35); 
+}
