@@ -8,7 +8,7 @@ const PRODUCTS_DATABASE = [
     },
     {
         id: 2,
-        name: "Household Rice Sealed Jar (20 Catties)",
+        name: "Household Rice Sealed Jar",
         price: 110.00,
         image: "products/item-2.png"
     },
@@ -56,7 +56,7 @@ const PRODUCTS_DATABASE = [
     },
     {
         id: 10,
-        name: "High Quality Tote Bag Canvas Shoulder Bag",
+        name: "High Quality Tote Bag",
         price: 100.00,
         image: "products/item-10.png"
     },
@@ -86,7 +86,7 @@ const PRODUCTS_DATABASE = [
     },
     {
         id: 15,
-        name: "Silicone Tumbler Protection Sleeve",
+        name: "Silicone Tumbler Holder",
         price: 30.00,
         image: "products/item-15.png"
     },
@@ -152,7 +152,7 @@ const PRODUCTS_DATABASE = [
     },
     {
         id: 26,
-        name: "High Speed Flash Drive Node",
+        name: "Flash Drive",
         price: 40.00,
         image: "products/item-26.png"
     },
@@ -176,13 +176,13 @@ const PRODUCTS_DATABASE = [
     },
     {
         id: 30,
-        name: "Insulated Gym Water Bottle (1000ml)",
+        name: "Insulated Gym Water Bottle (600,800 & 1000ml)",
         price: 140.00,
         image: "products/item-30.png"
     },
     {
         id: 31,
-        name: "Luxe 40oz Tumbler with Handle Set",
+        name: "Luxe 40oz Tumbler with Handle",
         price: 100.00,
         image: "products/item-31.png"
     },
@@ -194,19 +194,19 @@ const PRODUCTS_DATABASE = [
     },
     {
         id: 33,
-        name: "Hydro Tumbler Checker System",
+        name: "Hydro Tumbler",
         price: 170.00,
         image: "products/item-33.png"
     },
     {
         id: 34,
-        name: "Hydro Cup Stanley Edition",
+        name: "Hydro Cup",
         price: 170.00,
         image: "products/item-34.png"
     },
     {
         id: 35,
-        name: "Stanley Portable Food Fresh Keeper",
+        name: "Stanley Portable Bottles",
         price: 160.00,
         image: "products/item-35.png"
     }
